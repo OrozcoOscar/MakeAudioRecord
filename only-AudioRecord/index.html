@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microphone Chat</title>
+    <script src="https://kit.fontawesome.com/b5be18ffec.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="micro-contain">
+        <div class="micro-icon">
+            <div class="micro-icon-init">
+                <i class="fa-solid fa-microphone"></i>
+            </div>
+        </div>
+        <div class="micro-recording micro-inactive">
+            <div class="micro-trash-icon">
+                <i class="fa-solid fa-trash"></i>
+            </div>
+            <div class="micro-time-recording">
+                <div class="micro-time">
+                    00:00
+                </div>
+                <div class="micro-decibels">
+                </div>
+            </div>
+            <div class="micro-options-icon">
+                <i class="fa-solid fa-pause"></i>
+            </div>
+            <div class="micro-finish-icon">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+        </div>
+    </div>
+    <audio src=""></audio>
+    <script src="AudioRecord.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
