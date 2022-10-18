@@ -11,7 +11,7 @@ https://raw.githack.com/OrozcoOscar/MakeAudioRecord/main/MakeAudioRecord.js
 > **`return->Object`**  {init,finish,pause,resume,discard,ondiscard,onfinish,oninit,onpause,onresume}
 > 
 > # Instalacion
->  Añade estas etiquetas a tu dicumento `HTML`
+>  Añade estas etiquetas a tu documento `HTML`
 >> ```html
 >>  <script src="https://kit.fontawesome.com/b5be18ffec.js" crossorigin="anonymous"></script>
 >>  <link rel="stylesheet" href="https://raw.githack.com/OrozcoOscar/MakeAudioRecord/main/main.css">
@@ -23,7 +23,7 @@ https://raw.githack.com/OrozcoOscar/MakeAudioRecord/main/MakeAudioRecord.js
 >>  <micro-contain id="m1"></micro-contain>
 >>
 >> ```
->> De esta forma se llama a la funcion
+>> De esta forma se llama a la función
 >> ```js
 >> let m1=  MakeAudioRecord("#m1");
 >> ```
@@ -37,15 +37,15 @@ https://raw.githack.com/OrozcoOscar/MakeAudioRecord/main/MakeAudioRecord.js
 >> ```js
 >> //m1 config
 >>(()=>{
->>  // Aqui esbalesemos las acciones que a relizar despues de que finalize la funcion finishmen este caso obtenemos el audio y lo insertamos en una etiqueta de audio
+>>  // Aquí establecemos las acciones a realizar después de que finalize la función finish en este caso obtenemos el audio y lo insertamos en una etiqueta de audio
 >>   m1.onfinish=({audio})=>{
 >>       document.querySelector(`audio`).setAttribute("controls", "");
 >>       document.querySelector(`audio`).src = audio;
 >>   }
->>   //En esta otra configuracion añadimos una pwueña validacion
+>>   //En esta otra configuración añadimos una pequeña validación
 >>   
->>   let {discard}=m1;//primero obtenemos y guardamos la funcion por defecto antes de modificarla
->>   m1.discard=()=>{//luego posedemos a sobre escribir la funcionmen este caso le pedimos al usuario q confime y una vez hecho esto ejecutamos la funcion por defecto
+>>   let {discard}=m1;//primero obtenemos y guardamos la función por defecto antes de modificarla
+>>   m1.discard=()=>{//luego procedemos a sobre escribir la funcionen este caso le pedimos al usuario q confirme y una vez hecho esto ejecutamos la función por defecto
 >>       if(confirm("Desea Descartar este audio?"))discard();
 >>   }
 >> })();
@@ -112,7 +112,7 @@ let audio = new AudioRecord(true,".micro-decibels")
 >>         } 
 >> ```js
 >> audio.finish(({ audio }) => {
->>       console.log("Ya finalizó 🤩, y aqui esta el audio ",audio)
+>>       console.log("Ya finalizó 🤩, y aquí esta el audio ",audio)
 >>   })
 >> ```
 >
