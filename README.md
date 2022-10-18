@@ -21,6 +21,7 @@ https://raw.githack.com/OrozcoOscar/MakeAudioRecord/main/MakeAudioRecord.js
 >> Dentro de la etiqueta body
 >> ```html
 >>  <micro-contain id="m1"></micro-contain>
+>>   <audio src=""></audio>
 >>
 >> ```
 >> De esta forma se llama a la función
