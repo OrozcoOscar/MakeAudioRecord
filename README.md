@@ -1,6 +1,55 @@
 # MakeAudioRecord
-Crea una estructura base para grabar audio
 
+## cdn
+https://raw.githack.com/OrozcoOscar/MakeAudioRecord/main/MakeAudioRecord.js
+
+> ## Crea una estructura base para grabar audio
+> **`parent:String`**  Recibe el querySelector del elemento padre (solo si hay mas de un elemento)
+> 
+> **`showDecibels:Bolean`**  showDecibels Establece si se muestran o no la animación del sonido 
+> 
+> **`return->Object`**  {init,finish,pause,resume,discard,ondiscard,onfinish,oninit,onpause,onresume}
+> 
+> # Instalacion
+>  Añade estas etiquetas a tu dicumento `HTML`
+>> ```html
+>>  <script src="https://kit.fontawesome.com/b5be18ffec.js" crossorigin="anonymous"></script>
+>>  <link rel="stylesheet" href="https://raw.githack.com/OrozcoOscar/MakeAudioRecord/main/main.css">
+>>  <script src="https://raw.githack.com/OrozcoOscar/MakeAudioRecord/main/AudioRecord.js"></script>
+>>  <script src="https://raw.githack.com/OrozcoOscar/MakeAudioRecord/main/MakeAudioRecord.js"></script>
+>> ```
+>> Dentro de la etiqueta body
+>> ```html
+>>  <micro-contain id="m1"></micro-contain>
+>>
+>> ```
+>> De esta forma se llama a la funcion
+>> ```js
+>> let m1=  MakeAudioRecord("#m1");
+>> ```
+>> Tambien puede hacerse de esta manera pero solo si hay una sola etiqueta `micro-contain`
+>> ```js
+>> let m1=  MakeAudioRecord();
+>> ```
+> # configurar
+> Si deseamos modificar los valores por defecto podemos hacerlo de la siguiente manera:
+>
+>> ```js
+>> //m1 config
+>>(()=>{
+>>  // Aqui esbalesemos las acciones que a relizar despues de que finalize la funcion finishmen este caso obtenemos el audio y lo insertamos en una etiqueta de audio
+>>   m1.onfinish=({audio})=>{
+>>       document.querySelector(`audio`).setAttribute("controls", "");
+>>       document.querySelector(`audio`).src = audio;
+>>   }
+>>   //En esta otra configuracion añadimos una pwueña validacion
+>>   
+>>   let {discard}=m1;//primero obtenemos y guardamos la funcion por defecto antes de modificarla
+>>   m1.discard=()=>{//luego posedemos a sobre escribir la funcionmen este caso le pedimos al usuario q confime y una vez hecho esto ejecutamos la funcion por defecto
+>>       if(confirm("Desea Descartar este audio?"))discard();
+>>   }
+>> })();
+>> ```
 # AudioRecord
 ## cdn
 https://raw.githack.com/OrozcoOscar/MakeAudioRecord/main/AudioRecord.js
@@ -8,9 +57,9 @@ https://raw.githack.com/OrozcoOscar/MakeAudioRecord/main/AudioRecord.js
 
 > ### Permite grabar el audio del micrófono y lo codifica en base64
 > 
-> **showDecibels:Bolean** Establece si se muestra o no la animación del sonido.
+> **`showDecibels:Bolean`** Establece si se muestra o no la animación del sonido.
 > 
-> **parentDecibels:String** Establece cual es el elemento donde se debe mostrar la animación.
+> **`parentDecibels:String`** Establece cual es el elemento donde se debe mostrar la animación.
 >
 ```js
 
@@ -18,8 +67,8 @@ let audio = new AudioRecord(true,".micro-decibels")
 ```
 ## Metodos
 > ## start
->> **fun:Function** Función que se ejecuta después de que se inicia la grabación. 
->> **fun:Function** Función que se ejecuta durante la grabación, esta recibe dos parámetros (timeState,timeMillisecond); un string con el tiempo y los mili segundos que van de grabación.
+>> **`fun:Function`** Función que se ejecuta después de que se inicia la grabación. 
+>> **`fun2:Function`** Función que se ejecuta durante la grabación, esta recibe dos parámetros (timeState,timeMillisecond); un string con el tiempo y los mili segundos que van de grabación.
 >> ```js
 >> audio.start(() => {
 >>       console.log("Ya inició 🧐")
@@ -29,7 +78,7 @@ let audio = new AudioRecord(true,".micro-decibels")
 >> ```
 >
 > ## pause
->> **fun:Function** Función que se ejecuta después de que se pausa la grabación,esta recibe un objeto 
+>> **`fun:Function`** Función que se ejecuta después de que se pausa la grabación,esta recibe un objeto 
 >> 
 >>         {
 >>             audio: Es el contenido de la grabación en base64,
@@ -42,7 +91,7 @@ let audio = new AudioRecord(true,".micro-decibels")
 >> ```
 >
 > ## resume
->> **fun:Function** Función que se ejecuta después de que se pausa la grabación,esta recibe un objeto
+>> **`fun:Function`** Función que se ejecuta después de que se pausa la grabación,esta recibe un objeto
 >> 
 >>         {
 >>             audio: Es el contenido de la grabación en base64,
@@ -55,7 +104,7 @@ let audio = new AudioRecord(true,".micro-decibels")
 >> ```
 >    
 > ## finish
->> **fun:Function** Función que se ejecuta después de que se finaliza la grabación,esta recibe un objeto 
+>> **`fun:Function`** Función que se ejecuta después de que se finaliza la grabación,esta recibe un objeto 
 >> 
 >>         {
 >>             audio: Es el contenido de la grabación en base64,
